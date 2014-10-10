@@ -1,6 +1,10 @@
 GmuLibraryProject::Application.routes.draw do
+<<<<<<< HEAD
   resources :users
 
+=======
+  get "/books" => "books#index", as: 'books'
+>>>>>>> 4dee6f57a1d800dda1a9f64bb07d4c0f499ce8db
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

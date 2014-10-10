@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141009233928) do
 
   create_table "users", force: true do |t|
@@ -18,6 +19,20 @@ ActiveRecord::Schema.define(version: 20141009233928) do
     t.string   "password_digest"
     t.string   "user_id"
     t.boolean  "admin"
+=======
+ActiveRecord::Schema.define(version: 20141009234312) do
+
+  create_table "books", force: true do |t|
+    t.string   "isbn"
+    t.string   "title"
+    t.integer  "author_id"
+    t.string   "genre"
+    t.text     "abstract"
+    t.integer  "pages"
+    t.string   "image_cover_url"
+    t.date     "published_on"
+    t.integer  "total_in_library"
+>>>>>>> 4dee6f57a1d800dda1a9f64bb07d4c0f499ce8db
     t.datetime "created_at"
     t.datetime "updated_at"
   end
