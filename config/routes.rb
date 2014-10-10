@@ -1,12 +1,26 @@
 GmuLibraryProject::Application.routes.draw do
 
+
   resources :users
   get "/books" => "books#index", as: 'books'
   get "/authors" => "authors#index", as: 'authors'
   get "/authors/new" => "authors#new", as: 'new_author'
   get "/authors/:id" => "authors#show", as: 'author'
   post "/authors" => "authors#create"
-  # The priority is based upon order of creation: first created -> highest priority.
+
+
+  get "admin/index"
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
+  resources :users
+
+
+  get "/books" => "books#index", as: 'books'
+  get "/books/:id" => "books#show", as: 'book'
+  
+
+
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
