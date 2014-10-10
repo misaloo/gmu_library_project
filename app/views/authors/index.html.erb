@@ -1,8 +1,10 @@
 <h1>Authors</h1>
-<ol>
+<ul>
 <% @authors.each do |author| %>
-  <li><%= author.name %></li>
+  <li><%= image_tag 'http://en.wikipedia.org/wiki/J._R._R._Tolkien#mediaviewer/File:Tolkien_1916.jpg' %>
+  <%= author.name %>
+</li>
 <% end %>
-</ol>
+</ul>
 
 

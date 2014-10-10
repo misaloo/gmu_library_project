@@ -16,8 +16,7 @@ GmuLibraryProject::Application.routes.draw do
   resources :users
 
 
-  get "/books" => "books#index", as: 'books'
-  get "/books/:id" => "books#show", as: 'book'
+  
   
 
 
