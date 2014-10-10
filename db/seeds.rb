@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# create author
+tolkien = Author.where(name: 'J.R.R. Tolkien').first_or_create!(nationality: 'English', dob: '1892-01-03', awards: 'Great Award', biography: 'Early Life John Ronald Reuel Tolkien was born on January 3, 1892, in Bloemfontein, South Africa, to English parents. At the age of three his mother brought him ...', image_url: '')
+
+
+
