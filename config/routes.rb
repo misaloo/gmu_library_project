@@ -2,7 +2,6 @@ GmuLibraryProject::Application.routes.draw do
 
 
   resources :users
-  get "/books" => "books#index", as: 'books'
   get "/authors" => "authors#index", as: 'authors'
   get "/authors/new" => "authors#new", as: 'new_author'
   get "/authors/:id" => "authors#show", as: 'author'
@@ -13,11 +12,13 @@ GmuLibraryProject::Application.routes.draw do
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
-  resources :users
+ 
 
 
-  
-  
+  get "/books" => "books#index", as: 'books'
+  get"/books/new"=>"books#new",as:'new_book'
+  get "/books/:id" => "books#show", as: 'book'
+  post"/books"=>"books#create"
 
 
   # See how all your routes lay out with "rake routes".
