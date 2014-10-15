@@ -1,5 +1,6 @@
-
 class AuthorsController < ApplicationController
+  skip_before_action :authorize
+
   def index
   	@authors = Author.all
   end
