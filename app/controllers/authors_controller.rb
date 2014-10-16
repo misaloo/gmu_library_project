@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   skip_before_action :authorize
+  before_action :set_author, only: [:show]
 
   def index
   	@authors = Author.all
@@ -11,8 +12,14 @@ class AuthorsController < ApplicationController
 
   def create
      @author = Author.new(author_params)
-     @author.save
-     redirect_to @author
+     if @author.save    
+        redirect_to @author, notice: "#{@author.name} was created!"
+     else
+        render :new
+     end      
+  end
+
+  def show
   end
 
   private
@@ -20,5 +27,9 @@ class AuthorsController < ApplicationController
   def author_params
      params.require(:author).permit(:name, :dob, :nationality, :awards, :biography, :image_url)
   end	
+
+  def set_author
+     @author = Author.find(params[:id])
+  end
 
 end
