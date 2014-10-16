@@ -18,11 +18,12 @@ class UsersControllerTest < ActionController::TestCase
 # "should create user" test is different from book, p. 196
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: { admin: @user.admin, created_at: @user.created_at, name: @user.name, password_digest: @user.password_digest, updated_at: @user.updated_at, user_id: @user.user_id }
+      post :create, user: { name: 'sam', password: 'secret', passowrd_confirmation: 'secret' }
     end
-
-    assert_redirected_to user_path(assigns(:user))
+# admin: @user.admin, created_at: @user.created_at, name: @user.name, password_digest: @user.password_digest, updated_at: @user.updated_at, user_id: @user.user_id
+    assert_redirected_to users_path
   end
+# (assigns(:user))
 
   test "should show user" do
     get :show, id: @user
@@ -33,10 +34,11 @@ class UsersControllerTest < ActionController::TestCase
     get :edit, id: @user
     assert_response :success
   end
-# same as above
+# admin: @user.admin, created_at: @user.created_at, name: @user.name, password_digest: @user.password_digest, updated_at: @user.updated_at, user_id: @user.user_id
+# (assigns(:user))
   test "should update user" do
-    patch :update, id: @user, user: { admin: @user.admin, created_at: @user.created_at, name: @user.name, password_digest: @user.password_digest, updated_at: @user.updated_at, user_id: @user.user_id }
-    assert_redirected_to user_path(assigns(:user))
+    patch :update, id: @user, user: { name: @user.name, password: 'secret', password_confirmation: 'secret' }
+    assert_redirected_to users_path 
   end
 
   test "should destroy user" do

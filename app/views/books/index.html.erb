@@ -1,7 +1,7 @@
 <h1>All Books</h1>
 
 <ol>
-<% @books.each do |book| %>
+<% @book.each do |book| %>
   <li><%= link_to(book.title, book) %> by <%= book.author_id %></li>
 <% end %>
 </ol>
