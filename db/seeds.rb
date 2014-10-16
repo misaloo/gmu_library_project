@@ -11,3 +11,4 @@ seuss = Author.where(name: 'Dr. Seuss').first_or_create!(nationality: 'American'
 
 
 
+User.where(name: 'Admin').first_or_create!(password_digest: BCrypt::Password.create('password'), user_id: 'Admin1', admin: true, password: 'password', password_confirmation: 'password')

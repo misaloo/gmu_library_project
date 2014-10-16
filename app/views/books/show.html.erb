@@ -1,13 +1,15 @@
+<% content_for :title, @book.title %>
+
 <article class="book">
   <header>
-    <h2><%= @book.title %></h2>
+    <h3><%= @book.title %></h3>
   </header>
   <%= image_tag @book.image_cover_url %>
   <span>
   	<%= @book.abstract %>
   </span>
 
-  <h3>Details</h3>
+  <h4>Details</h4>
    <p><label>ISBN:</label> <%= @book.isbn %></p>
   <p><label>Author:</label> <%= @book.author_id %></p>
    <p><label>Genre:</label> <%= @book.genre %></p>
@@ -16,8 +18,8 @@
   <p><label>Available to Reserve:</label> [# Reserved] out of <%= @book.total_in_library %></p>
 </article>
 
-<%= link_to 'All Books', books_path %> | <%= link_to 'Edit', edit_book_path(@book) %>
-<br />
+<%= button_to 'Edit', edit_book_path(@book), :method => :get %>
+
 <%= button_to 'Delete', @book,
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
