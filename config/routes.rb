@@ -19,16 +19,7 @@ GmuLibraryProject::Application.routes.draw do
   get "admin/index"
   
   resources :books
- #get "/books" => "books#index", as: 'books'
- #get"/books/new"=>"books#new",as:'new_book'
- #get "/books/:id" => "books#show", as: 'book'
- #post"/books"=>"books#create"
- #get "/book/:id/edit" => "books#edit", as: 'edit_book'
- #patch "/books/:id" => "books#update"
- #delete "/books/:id" => "books#destroy"
-
-
-  #root 'books#index', as: 'books'
+  root 'books#index'
 
   # See how all your routes lay out with "rake routes".
 
