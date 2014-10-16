@@ -1,6 +1,5 @@
-class AdminController < ApplicationController
- # This needs to be total reservations. 
+class AdminController < ApplicationController 
   def index
-  	@total_orders = Order.count
+  	@book = Book.all
   end
 end

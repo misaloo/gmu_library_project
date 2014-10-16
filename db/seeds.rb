@@ -10,3 +10,4 @@ tolkien = Author.where(name: 'J.R.R. Tolkien').first_or_create!(nationality: 'En
 
 Book.where(title: 'The Hobbit').first_or_create!(isbn: '9780582186552', author_id:tolkien, genre:'Fantasy', abstract:'This is an example')
 
+User.where(name: 'Admin').first_or_create!(password_digest: BCrypt::Password.create('password'), user_id: 'Admin1', admin: true, password: 'password', password_confirmation: 'password')
