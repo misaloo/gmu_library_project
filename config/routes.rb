@@ -10,10 +10,10 @@ GmuLibraryProject::Application.routes.draw do
   get "sessions/destroy"
   resources :users
 
-#  get "/authors" => "authors#index", as: 'authors'
-#  get "/authors/new" => "authors#new", as: 'new_author'
-#  get "/authors/:id" => "authors#show", as: 'author'
-#  post "/authors" => "authors#create"
+  get "/authors" => "authors#index", as: 'authors'
+  get "/authors/new" => "authors#new", as: 'new_author'
+  get "/authors/:id" => "authors#show", as: 'author'
+  post "/authors" => "authors#create"
 
 
 #  get "admin/index"
