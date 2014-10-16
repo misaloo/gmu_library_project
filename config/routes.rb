@@ -10,20 +10,25 @@ GmuLibraryProject::Application.routes.draw do
   get "sessions/destroy"
   resources :users
 
-#  get "/authors" => "authors#index", as: 'authors'
-#  get "/authors/new" => "authors#new", as: 'new_author'
-#  get "/authors/:id" => "authors#show", as: 'author'
-#  post "/authors" => "authors#create"
+  get "/authors" => "authors#index", as: 'authors'
+  get "/authors/new" => "authors#new", as: 'new_author'
+  get "/authors/:id" => "authors#show", as: 'author'
+  post "/authors" => "authors#create"
 
 
-#  get "admin/index"
+  get "admin/index"
   
+  resources :books
+ #get "/books" => "books#index", as: 'books'
+ #get"/books/new"=>"books#new",as:'new_book'
+ #get "/books/:id" => "books#show", as: 'book'
+ #post"/books"=>"books#create"
+ #get "/book/:id/edit" => "books#edit", as: 'edit_book'
+ #patch "/books/:id" => "books#update"
+ #delete "/books/:id" => "books#destroy"
 
-#  get "/books" => "books#index", as: 'books'
-#  get"/books/new"=>"books#new",as:'new_book'
-#  get "/books/:id" => "books#show", as: 'book'
-#  post"/books"=>"books#create"
-  root 'books#index', as: 'books'
+
+  #root 'books#index', as: 'books'
 
   # See how all your routes lay out with "rake routes".
 

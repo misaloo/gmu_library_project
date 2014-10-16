@@ -16,4 +16,8 @@
   <p><label>Available to Reserve:</label> [# Reserved] out of <%= @book.total_in_library %></p>
 </article>
 
-<%= link_to 'All Books', books_path %>
+<%= link_to 'All Books', books_path %> | <%= link_to 'Edit', edit_book_path(@book) %>
+<br />
+<%= button_to 'Delete', @book,
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
