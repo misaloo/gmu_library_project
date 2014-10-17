@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  # skip_before_action :authorize
   before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 
   def set_book
@@ -42,6 +41,7 @@ class BooksController < ApplicationController
     redirect_to @book, notice: "#{@book.title} was deleted."
   end
 private
+
 
 def book_params
   params.require(:book).permit(:title,:isbn,:genre,:abstract,:author_id,:pages,:image_cover_url,:published_on,:total_in_library)
