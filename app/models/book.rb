@@ -1,4 +1,6 @@
 class Book < ActiveRecord::Base
+  belongs_to :author
+  validates :author, presence: true
   GENRES = ["Sci-Fi", "History", "Biographies"]
   validates :title, :author_id, :abstract, :total_in_library, :genre, :published_on, presence: true
   validates :pages,

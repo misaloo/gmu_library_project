@@ -2,7 +2,7 @@
 <%= render 'shared/validation_errors', object: @book %>
 <%= f.label :title %><%= f.text_field :title,autofocus:true %><br/>
 
-<%= f.label :author_id %><%= f.text_field :author_id %><br/>
+<%= f.label :author %><%= f.collection_select :author_id, Author.all, :id, :name, prompt: true %><br/>
 <%= f.label :isbn %><%= f.text_field :isbn %><br/>
 <%= f.label :abstract %><%= f.text_field :abstract %><br/>
 <%= f.label :pages %><%= f.text_field :pages %><br/>

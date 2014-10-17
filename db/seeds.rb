@@ -8,5 +8,5 @@
 # create author
 tolkien = Author.where(name: 'J.R.R. Tolkien').first_or_create!(nationality: 'English', dob: '1892-01-03', awards: 'Great Award', biography: 'Early Life John Ronald Reuel Tolkien was born on January 3, 1892, in Bloemfontein, South Africa, to English parents. At the age of three his mother brought him ...', image_url: 'http://en.wikipedia.org/wiki/J._R._R._Tolkien#mediaviewer/File:Tolkien_1916.jpg')
 
-Book.where(title: 'The Hobbit').first_or_create!(isbn: '9780582186552', author_id:tolkien, genre:'Fantasy', abstract:'This is an example')
+Book.where(title: 'The Hobbit').first_or_create!(isbn: '9780582186552', author:tolkien, genre:'Fantasy', abstract:'This is an example')
 
