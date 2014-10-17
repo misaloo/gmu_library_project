@@ -13,6 +13,12 @@
   <p><label>Awards:</label> <%= @author.awards %></p>
    
   <h3>Publications</h3> 
+  <% @author.books.each do |book| %>
+     <p>
+     	<%= image_tag book.image_cover_url %>
+     	<%= book.title %>
+     </p>
+  <% end %>
 </article>
 
-<%= link_to 'All Books', books_path %>
+

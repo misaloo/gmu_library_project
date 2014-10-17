@@ -46,4 +46,8 @@ private
 def book_params
   params.require(:book).permit(:title,:isbn,:genre,:abstract,:author_id,:pages,:image_cover_url,:published_on,:total_in_library)
   end
+
+  def set_author
+     @author = Author.find(params[:author_id])
+  end  
 end
