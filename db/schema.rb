@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009234312) do
+ActiveRecord::Schema.define(version: 20141017004450) do
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20141009234312) do
     t.string   "image_cover_url"
     t.date     "published_on"
     t.integer  "total_in_library"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reservations", force: true do |t|
+    t.date     "reserved_on"
+    t.date     "due_on"
+    t.integer  "user_id"
+    t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
