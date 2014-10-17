@@ -3,7 +3,16 @@
   <header>
     <h2><%= @author.name %></h2>
   </header>
- 
+
+  <%= image_tag @author.image_url %>
+  <%= @author.biography %>
+  </br>
+  <h3>Details</h3>
+  <p><label>Date of Birth:</label> <%= @author.dob %></p>
+  <p><label>Nationality:</label> <%= @author.nationality %></p>
+  <p><label>Awards:</label> <%= @author.awards %></p>
+   
+  <h3>Publications</h3> 
 </article>
 
 <%= link_to 'All Books', books_path %>
