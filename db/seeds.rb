@@ -14,4 +14,4 @@ Book.where(title: 'The Hobbit').first_or_create!(isbn: '9780582186552', author:t
 
 
 
-User.where(name: 'Admin').first_or_create!(password_digest: BCrypt::Password.create('password'), user_id: 'Admin1', admin: true, password: 'password', password_confirmation: 'password')
+User.where(name: 'Admin').first_or_create!(password_digest: BCrypt::Password.create('password'), admin: true, password: 'password', password_confirmation: 'password')

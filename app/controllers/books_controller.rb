@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  # skip_before_action :authorize
   before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 
   def set_book
