@@ -1,5 +1,5 @@
 GmuLibraryProject::Application.routes.draw do
-  get 'admin' => 'admin#index'
+  get 'books' => 'books#index'
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -16,7 +16,7 @@ GmuLibraryProject::Application.routes.draw do
   post "/authors" => "authors#create"
 
 
-  get "admin/index"
+  # get "admin/index"
   
   resources :books
   root 'books#index'

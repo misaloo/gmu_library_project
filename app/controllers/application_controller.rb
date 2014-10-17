@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   protected
 
     def authorize
+      logger.debug "authorizing for user id #{session[:user_id]}..."
       unless User.find_by(id: session[:user_id])
+      	logger.debug "rediecting to login"
       	redirect_to login_url, notice: "Please log in"
       end
     end
