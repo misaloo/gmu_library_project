@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [ :show, :edit, :update, :destroy ]
+  before_action :validated_admin_action, only: [ :create, :edit, :update, :destroy ]
+
 
   def set_book
     @book = Book.find(params[:id])
@@ -45,4 +47,9 @@ private
 def book_params
   params.require(:book).permit(:title,:isbn,:genre,:abstract,:author_id,:pages,:image_cover_url,:published_on,:total_in_library)
   end
+
+def validated_admin_action
+
+end
+
 end
