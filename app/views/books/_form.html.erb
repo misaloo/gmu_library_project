@@ -10,5 +10,6 @@
 <%= f.label :genre %><%= f.select :genre, Book::GENRES, { prompt: "Pick one" } %><br/>
 <%= f.label :published_on %><%= f.date_select :published_on %><br/>
 <%= f.label :image_cover_url %><%= f.text_field :image_cover_url %><br/>
-  <p><%= f.submit %></p>
+  <%= f.submit %>
+  <%= link_to 'Cancel', books_path %>
 <% end %>
