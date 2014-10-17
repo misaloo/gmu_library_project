@@ -13,4 +13,5 @@ class Book < ActiveRecord::Base
   validates :genre, inclusion: { in: GENRES,
     message: "%{value} is not a valid genre." },
     unless: "genre.blank?"
+  has_many :reservations, dependent: :destroy
 end
