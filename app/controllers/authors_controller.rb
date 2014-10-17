@@ -1,5 +1,4 @@
 class AuthorsController < ApplicationController
-  skip_before_action :authorize
   before_action :set_author, only: [:show]
 
   def index
