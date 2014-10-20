@@ -7,7 +7,7 @@
         <td>
           <%= image_tag reservation.book.image_cover_url, class: "bookimage" %>
           <span class="title"><%= link_to(reservation.book.title, reservation.book) %></span>
-          by <%= reservation.book.author %>
+          by <%= link_to reservation.book.author.name, author_path(reservation.book.author_id) %>
           <br>
           Due: <%= reservation.due_on.strftime("%m/%d/%Y") %>
           <%= button_to "Return Book", reservation,
