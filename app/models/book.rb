@@ -14,4 +14,5 @@ class Book < ActiveRecord::Base
     message: "%{value} is not a valid genre." },
     unless: "genre.blank?"
   has_many :reservations, dependent: :destroy
+  has_many :users, :through => :reservations
 end

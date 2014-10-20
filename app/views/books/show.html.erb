@@ -11,12 +11,14 @@
 
   <h4>Details</h4>
    <p><label>ISBN:</label> <%= @book.isbn %></p>
-  <p><label>Author:</label> <%= @book.author_id %></p>
+  <p><label>Author:</label> <%= link_to @book.author.name, author_path(@book.author_id) %></p>
    <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Published On:</label> <%= @book.published_on %></p>
-  <p><label>Available to Reserve:</label> [# Reserved] out of <%= @book.total_in_library %></p>
+  <p><label>Available to Reserve:</label> [# Available to Reserve] out of <%= @book.total_in_library %></p>
 </article>
+
+<%= button_to 'Reserve', reservations_path(book_id: @book)  %>
 
 <%= button_to 'Edit', edit_book_path(@book), :method => :get %>
 

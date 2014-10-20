@@ -1,0 +1,22 @@
+<h3>My Reservations</h3>
+
+
+<table>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td>
+          <%= image_tag reservation.book.image_cover_url, class: "bookimage" %>
+          <span class="title"><%= link_to(reservation.book.title, reservation.book) %></span>
+          by <%= reservation.book.author %>
+          <br>
+          Due: <%= reservation.due_on.strftime("%m/%d/%Y") %>
+          <%= button_to "Return Book", reservation,
+            method: :delete,
+            data: {confirm: 'Are you sure?'},
+            class: "btn btn-primary" %>          
+        </td>
+      </tr>
+    <% end %>
+</table>
+
+Displaying all <%= @reservations.size %> reservations

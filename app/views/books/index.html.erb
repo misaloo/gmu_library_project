@@ -3,6 +3,7 @@
 
 <% @book.each do |book| %>
   <div><%= image_tag book.image_cover_url %>
-  	<%= link_to(book.title, book) %> by <%= book.author_id %></div>
+  	<%= link_to(book.title, book) %> by
+  	<%= link_to(book.author.name, author_path(book.author_id)) %></div>
 <% end %>
 
