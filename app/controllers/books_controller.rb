@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [ :show, :edit, :update, :destroy ]
+  before_action :validated_admin_action, only: [ :create, :edit, :update, :destroy ]
+
 
   def set_book
     @book = Book.find(params[:id])
@@ -40,10 +42,19 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to @book, notice: "#{@book.title} was deleted."
   end
-private
+  
+  private
 
 
-def book_params
-  params.require(:book).permit(:title,:isbn,:genre,:abstract,:author_id,:pages,:image_cover_url,:published_on,:total_in_library)
+  def book_params
+    params.require(:book).permit(:title,:isbn,:genre,:abstract,:author_id,:pages,:image_cover_url,:published_on,:total_in_library)
   end
+
+  def validated_admin_action
+
+  end
+
+  def set_author
+     @author = Author.find(params[:author_id])
+  end  
 end
