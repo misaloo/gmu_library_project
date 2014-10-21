@@ -19,8 +19,11 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def is_admin?
-      session[:admin]
+    def session_access
+      if session[:admin] = false
+        redirect_to books_url
+      else
     end
+  end
 #  protect_from_forgery with: :exception
 end
