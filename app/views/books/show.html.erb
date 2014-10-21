@@ -34,8 +34,12 @@
       This book is not currently available for reservations.
   <% end %>
 
-<%= link_to 'Edit', edit_book_path(@book), class:"btn btn-default" %>
+<% if session[:admin] == true %>
+<div><%= link_to 'Edit', edit_book_path(@book), class:"btn btn-default" %></div>
+<% end %>
 
-<%= button_to 'Delete', @book,
+<% if session[:admin] == true %>
+<div><%= button_to 'Delete', @book,
                method: :delete,
-               data: { confirm: 'Are you sure?' }, class:"btn btn-primary delete-btn" %>
+               data: { confirm: 'Are you sure?' }, class:"btn btn-primary delete-btn" %></div>
+<% end %>

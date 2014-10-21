@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 #  before_action :validated_admin_action, only: [ :create, :edit, :update, :destroy ]
-  before_action :session_access, only: [ :create, :edit, :update, :destroy ]
+  before_action :session_access, only: [ :new, :create, :edit, :update, :destroy ]
 
 
   def set_book
@@ -64,10 +64,6 @@ class BooksController < ApplicationController
   end
 
   def session_access
-#    if session[:admin] = false
-#      redirect_to books_url
-#    else
-#    end
   end
 
   def set_author

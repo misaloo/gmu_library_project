@@ -20,10 +20,16 @@ class ApplicationController < ActionController::Base
     end
 
     def session_access
-      if session[:admin] = false
-        redirect_to books_url
+      if user.admin? "Admin Check"
+        session[:admin] = true
       else
+        session[:admin] = false
+        redirect_to books_url "redirecting to book list"
+      end
+#      if session[:admin] = false
+#        redirect_to books_url
+#      else
+#    end
     end
-  end
 #  protect_from_forgery with: :exception
 end
