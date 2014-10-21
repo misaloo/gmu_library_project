@@ -9,8 +9,10 @@ GmuLibraryProject::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   resources :users
+  
+  get "/reservations/overdue" => "reservations#overdue"
   resources :reservations
-
+  
   get "/authors" => "authors#index", as: 'authors'
   get "/authors/new" => "authors#new", as: 'new_author'
   get "/authors/:id" => "authors#show", as: 'author'
