@@ -12,3 +12,33 @@
  *= require_tree .
  *= require 'bootstrap'
  */
+
+ .book_thumbnail{
+ 	width:120px;
+ 	height:150px;
+ 	float:left;
+ 	margin-right:5px;
+ 	margin-bottom:5px;
+ 	text-align:center;
+ }
+
+ .book_thumbnail img{
+ 	width:inherit;
+ 	height:inherit;
+ }
+
+ .book_no_thumbnail{
+ 	border:1px solid gray;
+ 	width:120px;
+ 	height:150px;
+ 	float:left;
+ 	margin-right:5px;
+ 	margin-bottom:5px;
+ 	text-align:center;
+ 	padding-top:15px;	
+ }
+ .title{
+ 	font-weight:bold;
+ 	font-size:18px;
+ }
+

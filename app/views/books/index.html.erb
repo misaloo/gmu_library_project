@@ -1,9 +1,24 @@
 <h3>All Books</h3>
 
-
+<table width="100%">
 <% @book.each do |book| %>
-  <div><%= image_tag book.image_cover_url %>
-  	<%= link_to(book.title, book) %> by
-  	<%= link_to(book.author.name, author_path(book.author_id)) %></div>
+  <tr>
+  	<td>
+	  <% if book.image_cover_url.length > 0 %>
+	    <div class="book_thumbnail">
+	      <%= image_tag book.image_cover_url %>
+	    </div>
+	  <% else %>
+	    <div class ="book_no_thumbnail"> No Image Available </div>
+	  <% end %>
+	</div>
+  	<br />
+  	<span class="title"><%= link_to(book.title, book) %></span> by
+  	<%= link_to(book.author.name, author_path(book.author_id)) %>
+ </td>
+</tr>
+
 <% end %>
+</table>
+<%= paginate @books %>
 

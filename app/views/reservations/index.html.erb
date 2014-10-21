@@ -1,15 +1,24 @@
 <h3>My Reservations</h3>
 
 
-<table>
+<table width="100%">
     <% @reservations.each do |reservation| %>
       <tr>
         <td>
-          <%= image_tag reservation.book.image_cover_url, class: "bookimage" %>
+        	<div class="book_thumbnail">
+			    <% if reservation.book.image_cover_url.length > 0 %>
+			      <%= image_tag reservation.book.image_cover_url %>
+			    <% else %>
+			      <span class ="book_no_thumbnail"> No Image Available </span>
+			  <% end %>
+			</div>
+          <br />
           <span class="title"><%= link_to(reservation.book.title, reservation.book) %></span>
           by <%= link_to reservation.book.author.name, author_path(reservation.book.author_id) %>
-          <br>
-          Due: <%= reservation.due_on.strftime("%m/%d/%Y") %>
+          <br /><br />
+          <strong>Reserved on:</strong> <%= reservation.reserved_on.strftime("%m/%d/%Y") %><br />
+          <strong>Due on: </strong><%= reservation.due_on.strftime("%m/%d/%Y") %>
+          <br /><br />
           <%= button_to "Return Book", reservation,
             method: :delete,
             data: {confirm: 'Are you sure?'},
@@ -18,5 +27,5 @@
       </tr>
     <% end %>
 </table>
-
-Displaying all <%= @reservations.size %> reservations
+<hr />
+<p>Displaying <%= pluralize(@reservations.size, "reservation") %></p>
