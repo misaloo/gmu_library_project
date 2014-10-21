@@ -16,7 +16,8 @@
   <% @author.books.each do |book| %>
      <p>
      	<%= image_tag book.image_cover_url %>
-     	<%= book.title %>
+     	<%= book.title %> by
+      <%= @author.name %>
      </p>
   <% end %>
 </article>

@@ -17,7 +17,6 @@ GmuLibraryProject::Application.routes.draw do
   post "/authors" => "authors#create"
   
 
-
   # get "admin/index"
   
   resources :books do
