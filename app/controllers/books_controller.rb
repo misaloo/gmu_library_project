@@ -50,6 +50,10 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to @book, notice: "#{@book.title} was deleted."
   end
+
+  def search
+     @books = Book.search params[:search]   
+  end
   
   private
 

@@ -25,4 +25,10 @@ class Book < ActiveRecord::Base
     total_available > 0
   end
 
+  def self.search(key_param)
+    search_condition = "%" + key_param + "%"
+    find(:all, :conditions => ['title LIKE ?  OR isbn LIKE ?', search_condition, search_condition])
+    #where ("title like ? or isbn like ?", "%#{query}%","%#{query}%")
+  end
+
 end

@@ -1,6 +1,20 @@
-<h3>All Books</h3>
-<%= page_entries_info @books %>
 <table width="100%">
+   <tr>
+      <td>
+          <h3>All Books</h3>
+      </td>
+      <td align="right">
+        <%= form_tag(books_path, :method =>"get") do %>      
+		     <%= text_field_tag :search, params[:search] %>
+		     <%= submit_tag("Search") %>
+		  <% end %>
+      </td>	
+   </tr>
+</table>
+
+
+<table width="100%">
+	<%= page_entries_info @books %>
 <% @book.each do |book| %>
   <tr>
   	<td>
