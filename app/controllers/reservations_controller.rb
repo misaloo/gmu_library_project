@@ -1,8 +1,8 @@
 class ReservationsController < ApplicationController
-  before_action :set_book, only: [ :create ]
+  before_action :set_book, only: [ :create]
 
   def index
-  	@reservations = current_user.reservations.order('created_at desc')
+  	@reservations = Reservation.where("user_id=?", current_user).all
   end
 
   def show

@@ -15,4 +15,14 @@ class Book < ActiveRecord::Base
     unless: "genre.blank?"
   has_many :reservations, dependent: :destroy
   has_many :users, :through => :reservations
+
+  def available_to_reserve
+    available_to_reserve = self.total_in_library - self.reservations.size
+  end
+
+  def reserve_check?
+    total_available = self.total_in_library - self.reservations.size
+    total_available > 0
+  end
+
 end

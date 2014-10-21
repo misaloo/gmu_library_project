@@ -15,10 +15,16 @@
    <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Published On:</label> <%= @book.published_on %></p>
-  <p><label>Available to Reserve:</label> [# Available to Reserve] out of <%= @book.total_in_library %></p>
+  <p><label>Available to Reserve:</label> <%= @book.available_to_reserve %> out of <%= @book.total_in_library %></p>
 </article>
 
-<%= button_to 'Reserve', reservations_path(book_id: @book)  %>
+  <% if @user_reservation_count > 0 %>
+  <p class="bg-info">You currently have this book checked out.</p>
+  <% elsif @book.reserve_check? %>
+     <p><%= button_to 'Reserve', reservations_path(book_id: @book), class:"btn btn-primary" %></p>
+  <% else %>
+      This book is not currently available for reservations.
+  <% end %>
 
 <%= button_to 'Edit', edit_book_path(@book), :method => :get %>
 

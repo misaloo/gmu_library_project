@@ -12,6 +12,13 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user_book_reservations = Reservation.where("book_id=? and user_id=?", @book.id, current_user).all
+#   
+    if @user_book_reservations.nil?
+      @user_reservation_count = 0
+    else
+      @user_reservation_count = @user_book_reservations.count
+    end
   end
 
   def new
