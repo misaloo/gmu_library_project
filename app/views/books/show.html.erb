@@ -4,22 +4,38 @@
   <header>
     <h3><%= @book.title %></h3>
   </header>
-  <%= image_tag @book.image_cover_url %>
+
+  <div class="book_thumbnail">
+    <% if @book.image_cover_url.length > 0 %>
+      <%= image_tag @book.image_cover_url %>
+    <% else %>
+      <span class ="book_no_thumbnail"> No Image Available </span>
+  <% end %>
+</div>
+
   <span>
   	<%= @book.abstract %>
   </span>
 
-  <h4>Details</h4>
+  <h4 style='clear:left;'>Details</h4>
    <p><label>ISBN:</label> <%= @book.isbn %></p>
-  <p><label>Author:</label> <%= @book.author_id %></p>
+  <p><label>Author:</label> <%= link_to @book.author.name, author_path(@book.author_id) %></p>
    <p><label>Genre:</label> <%= @book.genre %></p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Published On:</label> <%= @book.published_on %></p>
-  <p><label>Available to Reserve:</label> [# Reserved] out of <%= @book.total_in_library %></p>
+  <p><label>Available to Reserve:</label> <%= @book.available_to_reserve %> out of <%= @book.total_in_library %></p>
 </article>
 
-<%= button_to 'Edit', edit_book_path(@book), :method => :get %>
+  <% if @user_reservation_count > 0 %>
+  <p class="bg-info">You currently have this book checked out.</p>
+  <% elsif @book.reserve_check? %>
+     <p><%= button_to 'Reserve', reservations_path(book_id: @book), class:"btn btn-primary" %></p>
+  <% else %>
+      This book is not currently available for reservations.
+  <% end %>
+
+<%= link_to 'Edit', edit_book_path(@book), class:"btn btn-default" %>
 
 <%= button_to 'Delete', @book,
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' }, class:"btn btn-primary delete-btn" %>

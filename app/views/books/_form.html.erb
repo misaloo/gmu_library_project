@@ -1,15 +1,45 @@
 <%= form_for(@book) do |f| %>
 <%= render 'shared/validation_errors', object: @book %>
-<%= f.label :title %><%= f.text_field :title,autofocus:true %><br/>
 
-<%= f.label :author %><%= f.collection_select :author_id, Author.all, :id, :name, prompt: true %><br/>
-<%= f.label :isbn %><%= f.text_field :isbn %><br/>
-<%= f.label :abstract %><%= f.text_field :abstract %><br/>
-<%= f.label :pages %><%= f.text_field :pages %><br/>
-<%= f.label :total_in_library %><%= f.text_field :total_in_library %><br/>
-<%= f.label :genre %><%= f.select :genre, Book::GENRES, { prompt: "Pick one" } %><br/>
-<%= f.label :published_on %><%= f.date_select :published_on %><br/>
-<%= f.label :image_cover_url %><%= f.text_field :image_cover_url %><br/>
-  <%= f.submit %>
-  <%= link_to 'Cancel', books_path %>
+  <table width="700px">
+	<tr>
+		<td width='25%'><%= f.label :title %></td>
+		<td width='75%'><%= f.text_field :title,autofocus:true %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :author %></td>
+		<td><%= f.collection_select :author_id, Author.all, :id, :name, prompt: true %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :isbn %></td>
+		<td><%= f.text_field :isbn %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :abstract %></td>
+		<td><%= f.text_area :abstract, rows: 6 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :pages %></td>
+		<td><%= f.text_field :pages %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :total_in_library %></td>
+		<td><%= f.text_field :total_in_library %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :genre %></td>
+		<td><%= f.select :genre, Book::GENRES, { prompt: "Pick one" } %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :published_on %></td>
+		<td><%= f.date_select :published_on %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :image_cover_url %></td>
+		<td><%= f.text_field :image_cover_url %></td>
+	</tr>
+	<tr>
+		<td colspan='2'><br />  <%= f.submit %> | <%= link_to 'Cancel', books_path %><br /><br /></td>
+	</tr>
+  </table>
 <% end %>

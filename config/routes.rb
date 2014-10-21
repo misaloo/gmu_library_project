@@ -1,5 +1,5 @@
 GmuLibraryProject::Application.routes.draw do
-  get 'books' => 'books#index'
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -9,6 +9,7 @@ GmuLibraryProject::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   resources :users
+  resources :reservations
 
   get "/authors" => "authors#index", as: 'authors'
   get "/authors/new" => "authors#new", as: 'new_author'
@@ -19,7 +20,10 @@ GmuLibraryProject::Application.routes.draw do
 
   # get "admin/index"
   
-  resources :books
+  resources :books do
+    get 'page/:page', :action => :index, :on => :collection
+  end
+ 
   root 'books#index'
 
   # See how all your routes lay out with "rake routes".
