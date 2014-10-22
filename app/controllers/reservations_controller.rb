@@ -34,6 +34,10 @@ class ReservationsController < ApplicationController
     redirect_to reservations_path, notice: "#{reservation.book.title} has been returned"
   end
 
+  def overdue
+    @reservations = Reservation.where("due_on < ?", Time.zone.now).all
+  end
+
 private
   def set_book
     @book = Book.find(params[:book_id])

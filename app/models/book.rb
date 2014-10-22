@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :author
   validates :author, presence: true
-  GENRES = ["Sci-Fi", "History", "Biographies"]
+  GENRES = ["Sci-Fi", "History", "Biographies", "Fantasy"]
   validates :title, :author_id, :abstract, :total_in_library, :genre, :published_on, presence: true
   validates :pages,
      numericality: { only_integer: true, greater_than_or_equal_to: 0 },
