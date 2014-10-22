@@ -25,6 +25,11 @@
       <% end %>
     </p>
     <p>
+    <% if session[:admin] == true %>
+    <%= link_to 'Manage Users', users_path %>
+    <% end %>
+    </p>
+    <p>
       <%= link_to 'Logout', sessions_destroy_path %>
     </p>
   </div>
