@@ -1,4 +1,26 @@
   
-  <h1>Search Results</h1>
-  <%= render 'form' %>
+ <h3>Search Results</h3>
+ <table width="100%">
+	<%= page_entries_info @books %>
+<% @book.each do |book| %>
+  <tr>
+  	<td>
+	  <% if book.image_cover_url.length > 0 %>
+	    <div class="book_thumbnail">
+	      <%= image_tag book.image_cover_url %>
+	    </div>
+	  <% else %>
+	    <div class ="book_no_thumbnail"> No Image Available </div>
+	  <% end %>
+	</div>
+  	<br />
+  	<span class="title"><%= link_to(book.title, book) %></span> by
+  	<%= link_to(book.author.name, author_path(book.author_id)) %>
+ </td>
+</tr>
+
+<% end %>
+</table>
+<%= paginate @books %>
+
   
