@@ -51,8 +51,9 @@ class BooksController < ApplicationController
   end
 
   def search
-     @books = Book.search params[:search]   
-     render :action => :search_results
+     @books = Book.search params[:search] 
+     render :search 
+     #render :action => :search_results
   end
   
   private

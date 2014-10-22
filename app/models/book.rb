@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :author
   validates :author, presence: true
-  GENRES = ["Sci-Fi", "History", "Biographies", "Fantasy"]
+  GENRES = ["Sci-Fi", "History", "Biographies", "Fantasy", "Children Book"]
   validates :title, :author_id, :abstract, :total_in_library, :genre, :published_on, presence: true
   validates :pages,
      numericality: { only_integer: true, greater_than_or_equal_to: 0 },
@@ -25,10 +25,10 @@ class Book < ActiveRecord::Base
     total_available > 0
   end
 
-  def self.search(key_param)
-    search_condition = "%" + key_param + "%"
-    find(:all, :conditions => ['title LIKE ?  OR isbn LIKE ?', search_condition, search_condition])
-    #where ("title like ? or isbn like ?", "%#{query}%","%#{query}%")
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['title LIKE ? OR isbn LIKE ? ', search_condition, search_condition] )
+
   end
 
 end

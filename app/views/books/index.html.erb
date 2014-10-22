@@ -3,8 +3,8 @@
       <td>
           <h3>All Books</h3>
       </td>
-      <td align="right">
-        <%= form_tag(books_path, :method =>"get") do %>      
+      <td align="right">       
+        <%= form_tag :controller => 'books', :action => 'search', :method => 'get' do %>     
 		     <%= text_field_tag :search, params[:search] %>
 		     <%= submit_tag("Search") %>
 		  <% end %>
