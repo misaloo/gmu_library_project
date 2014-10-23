@@ -7,13 +7,13 @@ class BooksController < ApplicationController
   end
 
   def index
-  	@book = Book.all
+  	#@book = Book.all
     @books = Book.order(:title).page(params[:page])
   end
 
   def show
     @user_book_reservations = Reservation.where("book_id=? and user_id=?", @book.id, current_user).all
-#   
+  
     if @user_book_reservations.nil?
       @user_reservation_count = 0
     else

@@ -15,7 +15,7 @@
 
 <table width="100%">
   <%= page_entries_info @books %>
-<% @book.each do |book| %>
+<% @books.each do |book| %>
   <tr>
     <td>
     <% if book.image_cover_url.length > 0 or book.image_cover_url.blank? %>
