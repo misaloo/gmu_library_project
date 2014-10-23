@@ -6,7 +6,7 @@
   </header>
 
   <div class="book_thumbnail">
-    <% if @book.image_cover_url.length > 0 %>
+    <% if @book.image_cover_url.length > 0 or @book.image_cover_url.blank? %>
       <%= image_tag @book.image_cover_url %>
     <% else %>
       <span class="book_no_thumbnail"> No Image Available </span>
