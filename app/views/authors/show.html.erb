@@ -1,25 +1,45 @@
+<% content_for :title, @author.name %>
 
 <article class="author">
   <header>
-    <h2><%= @author.name %></h2>
+    <h3><%= @author.name %></h3>
   </header>
+  <% if @author.image_url.length > 0 %>
+      <div class="book_thumbnail">
+        <%= image_tag @author.image_url %>
+      </div>
+    <% else %>
+      <div class="book_no_thumbnail"> No Image Available </div>
+    <% end %>
 
-  <%= image_tag @author.image_url %>
   <%= @author.biography %>
   </br>
-  <h3>Details</h3>
-  <p><label>Date of Birth:</label> <%= @author.dob %></p>
-  <p><label>Nationality:</label> <%= @author.nationality %></p>
-  <p><label>Awards:</label> <%= @author.awards %></p>
-   
-  <h3>Publications</h3> 
-  <% @author.books.each do |book| %>
-     <p>
-     	<%= image_tag book.image_cover_url %>
-     	<%= book.title %> by
-      <%= @author.name %>
-     </p>
+  <h4 style="clear:left">Details</h4>
+  <label>Date of Birth:</label> <%= @author.dob %><br />
+  <label>Nationality:</label> <%= @author.nationality %><br />
+  <% if @author.awards.length > 0 %>
+    <label>Awards:</label> <%= @author.awards %>
   <% end %>
+  <br />
+  
 </article>
-
-
+  <h3>Publications</h3> 
+  <table width="100%">
+  <% @author.books.each do |book| %>
+     <tr>
+      <td>
+      <% if book.image_cover_url.length > 0 %>
+      <div class="book_thumbnail">
+        <%= image_tag book.image_cover_url %>
+      </div>
+    <% else %>
+      <div class="book_no_thumbnail"> No Image Available </div>
+    <% end %>
+  </div>
+      <br />
+        <span class="title"><%= link_to(book.title, book) %></span> by
+        <%= @author.name %>
+     </td>
+   </tr>
+  <% end %>
+</table>
