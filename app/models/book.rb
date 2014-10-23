@@ -27,8 +27,10 @@ class Book < ActiveRecord::Base
 
   def self.search(search)
     search_condition = "%" + search + "%"
-    find(:all, :conditions => ['title LIKE ? OR isbn LIKE ? ', search_condition, search_condition] )
-
+         
+    @books = Book.find_by_sql("SELECT * FROM books inner join authors where books.author_id = authors.id and (books.title like  \""  +
+       search_condition  +  "\"or books.isbn like \"" +  search_condition + "\" or authors.name like  \"" +  search_condition +"\" );")
+     
   end
 
 end
