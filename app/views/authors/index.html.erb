@@ -1,10 +1,21 @@
-<h1>Authors</h1>
-<ul>
-<% @authors.each do |author| %>
-  <li><%= image_tag author.image_url %>
-  <%= link_to(author.name, author) %>
-</li>
+<h3>Authors</h3>
+<table width="100%">
+ <% @authors.each do |author| %>
+ <tr>
+    <td>
+    <% if author.image_url.length > 0 %>
+      <div class="book_thumbnail">
+        <%= image_tag author.image_url %>
+      </div>
+    <% else %>
+      <div class ="book_no_thumbnail"> No Image Available </div>
+    <% end %>
+  </div>
+    <br />
+    <span class="title"><%= link_to(author.name, author) %></span>
+ </td>
+</tr>
 <% end %>
-</ul>
+</table>
 
 
