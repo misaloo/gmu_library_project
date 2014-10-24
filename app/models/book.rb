@@ -26,10 +26,17 @@ class Book < ActiveRecord::Base
   end
 
   def self.search(search)
-    search_condition = "%" + search + "%"
+    #search_condition = "%" + search + "%"
+
+    title = "%#{search}%"
+    isbn = search
+    name = "%#{search}%"
+
+    @book = Book.find_by_sql( [ "SELECT * FROM books join authors on books.author_id = authors.id where books.title like ? 
+      or books.isbn = ? or authors.name like ?", title, isbn, name ] )
          
-    @books = Book.find_by_sql("SELECT * FROM books inner join authors where books.author_id = authors.id and (books.title like  \""  +
-       search_condition  +  "\"or books.isbn like \"" +  search_condition + "\" or authors.name like  \"" +  search_condition +"\" );")
+    #@book = Book.find_by_sql("SELECT * FROM books join authors on books.author_id = authors.id where (books.title like  '"  +
+      # search_condition  +  "'or books.isbn = '" +  search + "' or authors.name like  '" +  search_condition +"' );")
      
   end
 
