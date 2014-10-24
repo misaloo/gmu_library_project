@@ -6,7 +6,7 @@
       <tr>
         <td>
         	<div class="book_thumbnail">
-			    <% if reservation.book.image_cover_url.length > 0 %>
+			    <% if reservation.book.image_cover_url.length > 0 or reservation.book.image_cover_url.blank? %>
 			      <%= image_tag reservation.book.image_cover_url %>
 			    <% else %>
 			      <span class="book_no_thumbnail"> No Image Available </span>
