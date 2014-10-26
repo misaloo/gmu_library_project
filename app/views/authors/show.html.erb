@@ -27,11 +27,11 @@
      <tr>
       <td>
       <% if book.image_cover_url.blank? %>
+        <div class="no_thumbnail"> No Image Available </div>
+    <% else %>
       <div class="item_thumbnail">
         <%= image_tag book.image_cover_url %>
       </div>
-    <% else %>
-      <div class="no_thumbnail"> No Image Available </div>
     <% end %>
   </div>
       <br />
