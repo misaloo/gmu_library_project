@@ -29,14 +29,15 @@
   <% if @user_reservation_count > 0 %>
   <p class="bg-info">You currently have this book checked out.</p>
   <% elsif @book.reserve_check? %>
-     <p><%= button_to 'Reserve', reservations_path(book_id: @book), class:"btn btn-primary" %></p>
+     <%= button_to 'Reserve', reservations_path(book_id: @book), class:"btn btn-primary" %><br />
   <% else %>
-      This book is not currently available for reservations.
+      <p>This book is not currently available for reservations.</p>
   <% end %>
 
 <% if session[:admin] == true %>
-<%= link_to 'Edit', edit_book_path(@book), class:"btn btn-default" %>
-<%= link_to 'Delete', @book,
-               method: :delete,
-               data: { confirm: 'Are you sure?' }, class:"btn btn-default" %>
+  
+  <%= link_to 'Edit', edit_book_path(@book), class:"btn btn-default" %>
+  <%= link_to 'Delete', @book,
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' }, class:"btn btn-default" %>
 <% end %>

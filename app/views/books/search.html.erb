@@ -13,8 +13,8 @@
 </table> 
  
 <table width="100%">
-	<% if @book != nil%>
-		<% @book.each do |book| %>
+	<% if @books.size > 0 %>
+		<% @books.each do |book| %>
 		  <tr>
 		  	<td>
 			  <% if book.image_cover_url.blank? %>
@@ -29,8 +29,8 @@
 		</tr>
 
 		<% end %>
-	<%else%>
-	    No books matched your search.	
+	<% else %>
+	    <tr><td>No books matched your search.</td></tr>	
 	<% end %>	
 </table>
 
