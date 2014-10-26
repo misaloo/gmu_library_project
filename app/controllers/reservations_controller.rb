@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
   end
   
   def create
-
+    if @book.reserve_check? 
       currentTime = Time.zone.now
       @reservation = @book.reservations.new({:reserved_on => currentTime, :due_on => currentTime + 1.days, :user => current_user})
       if @reservation.save(current_user)
@@ -21,6 +21,9 @@ class ReservationsController < ApplicationController
       else
         redirect_to books_index_path(current_user), notice: 'Reservation failed.'
       end
+    else
+        redirect_to books_index_path(current_user), notice: 'Another user reserved the last available book. Please try again soon.'
+    end
   end
 
   def edit
