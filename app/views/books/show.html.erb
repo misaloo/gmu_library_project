@@ -5,13 +5,13 @@
     <h3><%= @book.title %></h3>
   </header>
 
-  <div class="book_thumbnail">
-    <% if @book.image_cover_url.length > 0 or @book.image_cover_url.blank? %>
-      <%= image_tag @book.image_cover_url %>
-    <% else %>
-      <span class="book_no_thumbnail"> No Image Available </span>
+  
+  <% if @book.image_cover_url.blank? %>
+    <div class="no_thumbnail"> No Image Available </div>
+  <% else %>
+    <div class="item_thumbnail"><%= image_tag @book.image_cover_url %></div>
   <% end %>
-</div>
+
 
   <span>
   	<%= @book.abstract %>
@@ -35,11 +35,11 @@
   <% end %>
 
 <% if session[:admin] == true %>
-<div><%= link_to 'Edit', edit_book_path(@book), class:"btn btn-default" %></div>
+<%= link_to 'Edit', edit_book_path(@book), class:"btn btn-default" %>
 <% end %>
 
 <% if session[:admin] == true %>
-<div><%= button_to 'Delete', @book,
+<%= button_to 'Delete', @book,
                method: :delete,
-               data: { confirm: 'Are you sure?' }, class:"btn btn-primary delete-btn" %></div>
+               data: { confirm: 'Are you sure?' }, class:"btn btn-primary delete-btn" %>
 <% end %>

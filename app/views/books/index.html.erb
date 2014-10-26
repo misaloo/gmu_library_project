@@ -18,14 +18,11 @@
 <% @books.each do |book| %>
   <tr>
     <td>
-    <% if book.image_cover_url.length > 0 or book.image_cover_url.blank? %>
-      <div class="book_thumbnail">
-        <%= image_tag book.image_cover_url %>
-      </div>
+    <% if book.image_cover_url.blank? %>
+      <div class="no_thumbnail">No Image Available</div>
     <% else %>
-      <div class ="book_no_thumbnail"> No Image Available </div>
+     <div class="item_thumbnail"><%= image_tag book.image_cover_url %></div>
     <% end %>
-  </div>
     <br />
     <span class="title"><%= link_to(book.title, book) %></span> by
     <%= link_to(book.author.name, author_path(book.author_id)) %>

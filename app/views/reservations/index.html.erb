@@ -5,13 +5,11 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <td>
-        	<div class="book_thumbnail">
-			    <% if reservation.book.image_cover_url.length > 0 or reservation.book.image_cover_url.blank? %>
-			      <%= image_tag reservation.book.image_cover_url %>
-			    <% else %>
-			      <span class="book_no_thumbnail"> No Image Available </span>
-			  <% end %>
-			</div>
+            <% if reservation.book.image_cover_url.blank? %>
+              <div class="no_thumbnail"> No Image Available </div>
+            <% else %>
+              <div class="item_thumbnail"><%= image_tag reservation.book.image_cover_url %></div>
+            <% end %>
           <br />
           <span class="title"><%= link_to(reservation.book.title, reservation.book) %></span>
           by <%= link_to reservation.book.author.name, author_path(reservation.book.author_id) %>

@@ -13,21 +13,22 @@
  *= require 'bootstrap'
  */
 
- .book_thumbnail{
+ .item_thumbnail{
  	width:120px;
  	height:150px;
  	float:left;
  	margin-right:5px;
  	margin-bottom:5px;
  	text-align:center;
+ 	border:none;
  }
 
- .book_thumbnail img{
+ .item_thumbnail img{
  	width:inherit;
  	height:inherit;
  }
 
- .book_no_thumbnail{
+ .no_thumbnail{
  	border:1px solid gray;
  	width:120px;
  	height:150px;
@@ -35,7 +36,9 @@
  	margin-right:5px;
  	margin-bottom:5px;
  	text-align:center;
- 	padding-top:15px;	
+ 	padding-top:15px;
+ 	font-weight: bold;
+ 	color:gray;	
  }
  .title{
  	font-weight:bold;
