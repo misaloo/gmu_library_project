@@ -10,7 +10,8 @@
     <p>
       <%= link_to 'Authors', authors_path %>
     </p>
-        <p>
+    
+    <p>
       <%= link_to 'My Reservations', reservations_path %>
     </p>
     <!-- comment Use the session[:admin] variable from browser -->
@@ -24,6 +25,13 @@
       <%= link_to 'Overdue Books', reservations_overdue_path %>
       <% end %>
     </p>
+
+    <p>
+      <% if session[:admin] == true %>
+      <%= link_to 'Create Author', new_author_path %>
+      <% end %>
+    </p>
+
     <p>
     <% if session[:admin] == true %>
     <%= link_to 'Manage Users', users_path %>

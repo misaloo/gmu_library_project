@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :set_author, only: [:show]
+  before_action :set_author, only: [:show, :edit, :update]
 
   def index
   	@authors = Author.all
@@ -19,6 +19,18 @@ class AuthorsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    #@author = Author.find(params[:id])
+  end
+    
+  def update
+      if @author.update(author_params)
+         redirect_to @author, notice: "#{@author.name} was updated!"
+      else
+         render :new
+    end
   end
 
   private

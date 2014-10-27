@@ -18,6 +18,8 @@ GmuLibraryProject::Application.routes.draw do
   get "/authors/:id" => "authors#show", as: 'author'
   post "/authors" => "authors#create"
   post "/books/search" => "books#search", as: 'search'
+  get "/authors/:id/edit" => "authors#edit", as: 'edit_author'
+  patch "/authors/:id" => "authors#update"
 
   # get "admin/index"
   
