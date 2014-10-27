@@ -3,14 +3,11 @@
  <% @authors.each do |author| %>
  <tr>
     <td>
-    <% if author.image_url.length > 0 %>
-      <div class="book_thumbnail">
-        <%= image_tag author.image_url %>
-      </div>
+    <% if author.image_url.blank? %>
+      <div class="no_thumbnail">No Image Available</div>
     <% else %>
-      <div class ="book_no_thumbnail"> No Image Available </div>
+     <div class="item_thumbnail"><%= image_tag author.image_url %></div>
     <% end %>
-  </div>
     <br />
     <span class="title"><%= link_to(author.name, author) %></span>
  </td>

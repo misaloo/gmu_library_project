@@ -4,13 +4,11 @@
   <header>
     <h3><%= @author.name %></h3>
   </header>
-  <% if @author.image_url.length > 0 or @author.image_url.blank? %>
-      <div class="book_thumbnail">
-        <%= image_tag @author.image_url %>
-      </div>
-    <% else %>
-      <div class="book_no_thumbnail"> No Image Available </div>
-    <% end %>
+  <% if @author.image_url.blank? %>
+    <div class="no_thumbnail">No Image Available</div>
+  <% else %>
+   <div class="item_thumbnail"><%= image_tag @author.image_url %></div>
+  <% end %>
 
   <%= @author.biography %>
   </br>
@@ -29,12 +27,12 @@
   <% @author.books.each do |book| %>
      <tr>
       <td>
-      <% if book.image_cover_url.length > 0 or book.image_cover_url.blank? %>
-      <div class="book_thumbnail">
+      <% if book.image_cover_url.blank? %>
+        <div class="no_thumbnail"> No Image Available </div>
+    <% else %>
+      <div class="item_thumbnail">
         <%= image_tag book.image_cover_url %>
       </div>
-    <% else %>
-      <div class="book_no_thumbnail"> No Image Available </div>
     <% end %>
   </div>
       <br />
