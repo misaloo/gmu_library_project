@@ -10,7 +10,7 @@
  <span class="title"><%= link_to(reservation.book.title, reservation.book) %></span>
     by <%= link_to reservation.book.author.name, author_path(reservation.book.author_id) %>
  <br /><br />
- <strong>Reserved by:</strong> <%= reservation.user.name %><br />
+ <strong>Reserved by:</strong> <%= reservation.user %><br />
  <strong>Reserved on:</strong> <%= reservation.reserved_on.strftime("%m/%d/%Y") %><br />
  <strong>Due on: </strong><%= reservation.due_on.strftime("%m/%d/%Y") %><br />
  <span class="bg-info">Overdue</span>
