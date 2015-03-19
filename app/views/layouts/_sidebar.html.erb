@@ -29,7 +29,7 @@
 
     <p>
       <% if session[:admin] == true %>
-      <%= link_to 'Create Author', new_author_path %>
+      <%= link_to 'Create Author', new_author_path, :class => 'btn btn-default btn-block' %>
       <% end %>
     </p>
 
